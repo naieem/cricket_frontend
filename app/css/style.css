@@ -1,0 +1,41 @@
+.teams {}
+
+.teams li {
+    display: inline-block;
+    width: 50%;
+    position: relative;
+    padding: 15px;
+}
+
+.teams li img {
+    max-width: 60%;
+    float: left;
+}
+
+.teams li span {
+    position: absolute;
+    font-size: 50px;
+    color: #fff;
+    left: 15px;
+    top: 15px;
+    background: rgba(129, 45, 211, 0.41);
+    width: 56%;
+    height: 85%;
+    display: block;
+    padding: 15px;
+}
+
+.teams li span::before{
+	content: "\00d7";
+	display: block;
+	margin-left: 86%;
+    margin-top: -25px;
+}
+
+.teams li input[type="checkbox"] {
+    position: absolute;
+    width: 100%;
+    display: block;
+    height: 100%;
+    opacity: 0;
+}

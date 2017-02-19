@@ -1,0 +1,12 @@
+<div class="jumbotron text-center">
+    <h1>Lets Play Cricket</h1>
+    <!-- <a ui-sref=".list" class="btn btn-primary">List</a>
+    <a ui-sref=".paragraph" class="btn btn-danger">Paragraph</a> -->
+    <hr>
+    <ul class="teams text-left">
+    <li ng-repeat="team in home.teams"><img src="asset/{{team.id}}.jpg"><span ng-show="tm"></span><input type="checkbox" ng-disabled="home.teamTotal===2 && !tm" ng-model="tm" name="tm" ng-click="home.selectTeam(this)"></li>
+    </ul>
+    
+</div>
+
+<!-- <div ui-view></div> -->

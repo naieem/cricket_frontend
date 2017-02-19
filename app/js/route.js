@@ -12,23 +12,25 @@
         // HOME STATES AND NESTED VIEWS ========================================
             .state('home', {
             url: '/',
-            templateUrl: 'template/partial-home.html'
+            templateUrl: 'template/home.html',
+            controller: 'homeController',
+            controllerAs: 'home'
         })
 
         // nested list with custom controller
-        .state('home.list', {
-            url: '/list',
-            templateUrl: 'template/partial-home-list.html',
-            controller: function($scope) {
-                $scope.dogs = ['Bernese', 'Husky', 'Goldendoodle'];
-            }
-        })
+        // .state('home.list', {
+        //     url: '/list',
+        //     templateUrl: 'template/partial-home-list.html',
+        //     controller: function($scope) {
+        //         $scope.dogs = ['Bernese', 'Husky', 'Goldendoodle'];
+        //     }
+        // })
 
-        // nested list with just some random string data
-        .state('home.paragraph', {
-            url: '/paragraph',
-            template: 'I could sure use a drink right now.'
-        })
+        // // nested list with just some random string data
+        // .state('home.paragraph', {
+        //     url: '/paragraph',
+        //     template: 'I could sure use a drink right now.'
+        // })
 
         // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
         // .state('about', {
