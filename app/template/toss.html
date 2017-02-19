@@ -1,0 +1,10 @@
+<div class="jumbotron text-center">
+    <h1>Select Who will Bowl</h1>
+    <ul class="toss text-left">
+        <li ng-repeat="team in toss.teams"><img src="asset/{{team.id}}.jpg">
+            <input type="radio" ng-model="ts" name="ts" value="{{team.name}}" ng-click="toss.selectTeam(ts)">
+        </li>
+    </ul>
+    <a href="#" ng-if="toss.toss !=''" class="btn btn-info" role="button" ng-click="toss.play($event)">Lets Play</a>
+</div>
+<!-- <div ui-view></div> -->

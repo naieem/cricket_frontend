@@ -1,0 +1,39 @@
+<div class="jumbotron text-center">
+    <h1>Lets Play Cricket</h1>
+
+    <h2><b>{{ play.teams[0].name }}</b> vs <b>{{ play.teams[1].name }}</b></h2>
+    <h2><b>{{ play.toss }}</b> has won the toss and elected to bowl first</h2>
+    <h2>Total Run:<b>{{ play.totalrun }}</b></h2>
+    <!-- <h1 ng-if="details.hideDetails">{{ details.message }}</h1> -->
+    <a href="#" ng-click="play.Bowl($event)" ng-if="play.matchFinished ==false" class="btn btn-info" role="button">Bowl</a>
+    <div ng-show="play.showloader"><img src='asset/reload.gif'></div>
+    <h2 ng-show="play.matchFinished">Match Finished Welldone</h2>
+    <table class="table text-left">
+        <thead>
+            <tr>
+                <th>Over</th>
+                <th>Run</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="bowls in play.score">
+                <td><a ui-sref="detailsByOverBall({matchId: play.matchId,over:bowls.over,ball:bowls.ball})">{{ bowls.over }}.{{ bowls.ball }}</a></td>
+                <td>{{ bowls.run }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <!-- <a href="#" ng-click="Bowl()" ng-show="matchid !== ''">bowl</a>
+    <div class="score" ng-show="matchid !== ''">
+      <div ng-bind="score | json"></div>
+      <p ng-repeat="scores in score">
+        Over:<span ng-bind="scores.over"></span>
+        Ball:<span ng-bind="scores.ball"></span>
+        Run:<span ng-bind="scores.run"></span>
+        TotalRun:<span ng-bind="totalrun"></span>
+      </p>
+    </div> -->
+
+
+</div>
