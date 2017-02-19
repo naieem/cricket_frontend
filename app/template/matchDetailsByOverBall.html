@@ -1,0 +1,29 @@
+<div class="jumbotron text-center">
+    <h1>{{ details.title }}</h1>
+    <!-- <p>{{ details.matchDetails }}</p> -->
+    <h2><b>{{ details.matchDetails.matchDetails.teams[0].name }}</b> vs <b>{{ details.matchDetails.matchDetails.teams[1].name }}</b></h2>
+    <h2><b>{{ details.matchDetails.matchDetails.toss }}</b> has won the toss</h2>
+    <h2>Total Run:<b>{{ details.matchDetails.totalRun }}</b></h2>
+    <a ui-sref="details({matchId: details.matchid})" class="btn btn-info" role="button">Full Score</a>
+    <h1 ng-if="details.hideDetails">{{ details.message }}</h1>
+    <table class="table text-left" ng-if="!details.hideDetails">
+        <thead>
+            <tr>
+                <th>Over</th>
+                <th>Run</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="bowlStats in details.matchDetails.matchStats">
+                <td><a ui-sref="detailsByOverBall({matchId: details.matchid,over:bowlStats.over,ball:bowlStats.ball})">{{ bowlStats.over }}.{{ bowlStats.ball }}</a></td>
+                <td>{{ bowlStats.run }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<!-- <div class="row">
+    <div class="col-sm-6">
+    </div>
+    <div class="col-sm-6">
+    </div>
+</div> -->

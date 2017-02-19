@@ -1,0 +1,14 @@
+<div class="jumbotron text-center">
+    <h1>{{ matches.title }}</h1>
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="match in matches.matchelist"><a ui-sref="details({matchId: match._id})">{{ match.teams[0].name }} vs {{ match.teams[1].name }}</a></li>
+    </ul>
+
+    {{ matches.matchelist }}
+</div>
+<!-- <div class="row">
+    <div class="col-sm-6">
+    </div>
+    <div class="col-sm-6">
+    </div>
+</div> -->

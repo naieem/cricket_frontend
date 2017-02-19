@@ -1,13 +1,21 @@
 {
-  "name": "angular",
+  "name": "cricket_frontend",
   "version": "1.0.0",
-  "description": "angular ui router",
-  "main": "controller.js",
+  "description": "",
+  "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naieem/cricket_frontend.git"
   },
   "author": "naieem",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/naieem/cricket_frontend/issues"
+  },
+  "homepage": "https://github.com/naieem/cricket_frontend#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-connect": "^5.0.0"
