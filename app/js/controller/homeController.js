@@ -5,9 +5,9 @@
         .module('cricket')
         .controller('homeController', homeController);
 
-    homeController.$inject = ['$http'];
+    homeController.$inject = ['$http','Service'];
 
-    function homeController($http) {
+    function homeController($http,Service) {
         var vm = this;
         vm.message = 'test';
 
@@ -31,8 +31,8 @@
             id: 'sl'
         }];
         vm.selectedTeams=[];
+        vm.teamTotal=0;
         vm.selectTeam=function(th){
-            // console.log(th);
             if(th.tm){
                 vm.selectedTeams.push(th.team);
             }
@@ -41,6 +41,7 @@
             }
             console.log(vm.selectedTeams);
             vm.teamTotal=vm.selectedTeams.length;
+            Service.setTeams(vm.selectedTeams);
         }
 
         // $http.get("http://localhost:3000/naieem")

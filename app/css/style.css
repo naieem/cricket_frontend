@@ -18,7 +18,7 @@
     color: #fff;
     left: 15px;
     top: 15px;
-    background: rgba(129, 45, 211, 0.41);
+    background: rgba(0, 0, 0, 0.4);
     width: 56%;
     height: 85%;
     display: block;
@@ -38,4 +38,47 @@
     display: block;
     height: 100%;
     opacity: 0;
+}
+
+
+/* toss page */
+.toss li {
+    display: inline-block;
+    width: 50%;
+    position: relative;
+    padding: 15px;
+}
+
+.toss li img {
+    max-width: 60%;
+    float: left;
+}
+
+.toss li span {
+    position: absolute;
+    font-size: 50px;
+    color: #fff;
+    left: 15px;
+    top: 15px;
+    background: rgba(0, 0, 0, 0.4);
+    width: 56%;
+    height: 85%;
+    display: block;
+    padding: 15px;
+}
+
+.toss li span::before{
+    content: "\00d7";
+    display: block;
+    margin-left: 86%;
+    margin-top: -25px;
+}
+
+.toss li input[type="radio"] {
+        position: absolute;
+    width: 20%;
+    display: block;
+    height: 20%;
+    right: 0;
+    top: 30%;
 }

@@ -17,6 +17,20 @@
             controllerAs: 'home'
         })
 
+        .state('toss', {
+            url: '/toss',
+            templateUrl: 'template/toss.html',
+            controller: 'tossController',
+            controllerAs: 'toss'
+        })
+
+        .state('play', {
+            url: '/play',
+            templateUrl: 'template/play.html',
+            controller: 'playController',
+            controllerAs: 'play'
+        })
+
         // nested list with custom controller
         // .state('home.list', {
         //     url: '/list',
