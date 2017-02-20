@@ -1,9 +1,13 @@
 <div class="jumbotron text-center">
     <h1>{{ matches.title }}</h1>
-    <ul class="list-group">
-        <li class="list-group-item" ng-repeat="match in matches.matchelist"><a ui-sref="details({matchId: match._id})">{{ match.teams[0].name }} vs {{ match.teams[1].name }}</a></li>
+    <div ng-show="matches.matchLoading"><img src='asset/reload.gif'></div>
+    <h2 ng-if="matches.noData">{{ matches.error }}</h2>
+    <ul class="list-group" ng-if="!matches.noData">
+        <li class="list-group-item" ng-repeat="match in matches.matchelist.slice(((matches.currentPage-1)* matches.itemsPerPage), ((matches.currentPage) * matches.itemsPerPage))"><a ui-sref="details({matchId: match._id})">{{ match.teams[0].name }} vs {{ match.teams[1].name }}</a>
+            <button title="Delete document" class="delete" ng-click="matches.delete(match._id)"></button>
+        </li>
     </ul>
-
+    <pagination total-items="matches.totalItems" ng-model="matches.currentPage" ng-change="matches.pageChanged()" class="pagination-sm" items-per-page="matches.itemsPerPage"></pagination>
     <!-- {{ matches.matchelist }} -->
 </div>
 <!-- <div class="row">

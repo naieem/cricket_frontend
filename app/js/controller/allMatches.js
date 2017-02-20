@@ -5,35 +5,45 @@
         .module('cricket')
         .controller('allMatchesController', allMatchesController);
 
-    allMatchesController.$inject = ['$http'];
+    allMatchesController.$inject = ['$http', 'Service'];
 
-    function allMatchesController($http) {
+    function allMatchesController($http, Service) {
         var vm = this;
         vm.title = 'All Match List';
-        // console.log(vm);
+        vm.matchLoading = true;
+        vm.viewby = 10;
+        vm.currentPage = 4;
+        vm.itemsPerPage = vm.viewby;
+        vm.maxSize = 5; //Number of pager buttons to show
+        vm.noData = false;
+        Service.getAllMatches().then(function(response) {
+            vm.matchelist = response.matchelist;
+            vm.matchLoading = response.matchLoading;
+            vm.totalItems = response.matchelist.length;
+            vm.error = response.error;
+            if (response.error != "") {
+                vm.noData = true;
+            }
+        });
 
-        // vm.lists = [{
-        //     name: 'Macallan 12',
-        //     price: 50
-        // }, {
-        //     name: 'Chivas Regal Royal Salute',
-        //     price: 10000
-        // }, {
-        //     name: 'Glenfiddich 1937',
-        //     price: 20000
-        // }];
-
-        $http.get("http://localhost:3000/crud/matches")
-            .then(function(response) {
-                vm.matchelist = response.data;
+        vm.delete = function(id) {
+            vm.matchLoading = true;
+            Service.deleteMatch(id).then(function(response) {
+                console.log(response);
+                if (response) {
+                    Service.getAllMatches().then(function(response) {
+                        vm.matchelist = response.matchelist;
+                        vm.matchLoading = response.matchLoading;
+                        vm.totalItems = response.matchelist.length;
+                        vm.error = response.error;
+                        if (response.error != "") {
+                            vm.noData = true;
+                        }
+                    });
+                }
             });
+        }
 
-        // $http.post("http://localhost:3000/add", {
-        //         'name': "supto"
-        //     })
-        //     .then(function(response) {
-        //         console.log(response);
-        //     });
     }
 
 })();
