@@ -1,6 +1,7 @@
 (function() {
     'use strict';
     var stateprovider = null;
+    var route = "../route.json";
     angular
         .module('cricket')
         .config(config);
@@ -9,15 +10,15 @@
         stateprovider = $stateProvider;
         $urlRouterProvider.otherwise('/');
 
-        $stateProvider
+        // $stateProvider
 
-        // HOME STATES AND NESTED VIEWS ========================================
-            .state('home', {
-            url: '/',
-            templateUrl: 'template/home.html',
-            controller: 'homeController',
-            controllerAs: 'home'
-        });
+        // // HOME STATES AND NESTED VIEWS ========================================
+        //     .state('home', {
+        //     url: '/',
+        //     templateUrl: 'template/home.html',
+        //     controller: 'homeController',
+        //     controllerAs: 'home'
+        // });
 
         // .state('toss', {
         //     url: '/toss',
@@ -102,8 +103,8 @@
     }
 
     angular
-        .module('cricket').run(["$http", function($http) {
-            $http.get('../route.json').then(function(response) {
+        .module('cricket').run(["$http", "$state", function($http, $state) {
+            $http.get(route).then(function(response) {
                 console.log(response);
                 angular.forEach(response.data, function(value, key) {
                     console.log(value.controller);
@@ -114,6 +115,9 @@
                         "controllerAs": value.controllerAs,
                     };
                     stateprovider.state(value.name, state);
+                    if (value.default) {
+                        $state.go(value.name);
+                    }
                 });
             });
 
