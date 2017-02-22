@@ -23,7 +23,7 @@
         vm.Bowl = function($event) {
             $event.preventDefault();
             console.log(vm.matchId);
-            if(!vm.matchFinished) {
+            if (!vm.matchFinished) {
                 if (vm.ball >= 6) {
                     vm.over++;
                     vm.ball = 0;
@@ -59,26 +59,13 @@
                     'id': vm.matchId
                 }
                 vm.showloader = true;
-                $http.post("http://localhost:3000/crud/runUpdate", obj)
-                    .then(function(response) {
-                        console.log(response);
-                        vm.matchFinished = true;
-                        vm.showloader = false;
-                    });
+                Service.finishMatch(obj).then(function(response) {
+                    console.log(response);
+                    vm.matchFinished = true;
+                    vm.showloader = false;
+                });
             }
         }
-
-        // $http.get("http://localhost:3000/naieem")
-        //     .then(function(response) {
-        //         vm.myWelcome = response.data;
-        //     });
-
-        // $http.post("http://localhost:3000/add", {
-        //         'name': "supto"
-        //     })
-        //     .then(function(response) {
-        //         console.log(response);
-        //     });
     }
 
 })();
