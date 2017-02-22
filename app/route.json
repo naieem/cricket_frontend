@@ -1,0 +1,31 @@
+[{
+    "name": "matches",
+    "url": "/matches",
+    "templateUrl": "template/matches.html",
+    "controller": "allMatchesController",
+    "controllerAs": "matches"
+}, {
+    "name": "toss",
+    "url": "/toss",
+    "templateUrl": "template/toss.html",
+    "controller": "tossController",
+    "controllerAs": "toss"
+}, {
+    "name": "play",
+    "url": "/play",
+    "templateUrl": "template/play.html",
+    "controller": "playController",
+    "controllerAs": "play"
+}, {
+    "name": "details",
+    "url": "/matches/details/:matchId",
+    "templateUrl": "template/matchDetails.html",
+    "controller": "matchDetails",
+    "controllerAs": "details"
+}, {
+    "name": "detailsByOverBall",
+    "url": "/matches/details/:matchId/:over/:ball",
+    "templateUrl": "template/matchDetailsByOverBall.html",
+    "controller": "matchDetailsByOverBall",
+    "controllerAs": "details"
+}]
