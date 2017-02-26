@@ -11,6 +11,7 @@
         var savedTeams = {};
         var matchId = "";
         var toss = "";
+        var api="http://185.185.250.55:3000";
 
         var service = {
             setTeams: setTeams,
@@ -57,7 +58,7 @@
 
         function deleteMatch(id) {
             return $q(function(resolve, reject) {
-                $http.post("http://185.185.250.55:3000/crud/delete", { 'id': id }).then(function(response) {
+                $http.post(api+"/crud/delete", { 'id': id }).then(function(response) {
                     resolve(response.data);
                 });
 
@@ -68,7 +69,7 @@
             var obj = {};
             obj.error = "";
             return $q(function(resolve, reject) {
-                $http.get("http://185.185.250.55:3000/crud/matches")
+                $http.get(api+"/crud/matches")
                     .then(function(response) {
                         obj.matchelist = response.data;
                         obj.matchLoading = false;
@@ -82,9 +83,9 @@
 
         function startPlay(info) {
             return $q(function(resolve, reject) {
-                $http.post("http://185.185.250.55:3000/crud/toss", info)
+                $http.post(api+"/crud/toss", info)
                     .then(function(response) {
-                        console.log(response.data);
+                        // console.log(response.data);
                         resolve(response.data._id);
                     });
             });
@@ -93,7 +94,7 @@
         function matchDetails(matchid) {
             var obj = {};
             return $q(function(resolve, reject) {
-                $http.get("http://185.185.250.55:3000/crud/details/" + matchid)
+                $http.get(api+"/crud/details/" + matchid)
                     .then(function(response) {
                         obj.matchDetails = response.data;
                         if (obj.matchDetails.totalRun === 0) {
@@ -109,7 +110,7 @@
         function matchDetailsByOverBall(matchid, over, ball) {
             var obj = {};
             return $q(function(resolve, reject) {
-                $http.get("http://185.185.250.55:3000/crud/details/" + matchid + "/" + over + "/" + ball)
+                $http.get(api+"/crud/details/" + matchid + "/" + over + "/" + ball)
                     .then(function(response) {
                         obj.matchDetails = response.data;
                         if (obj.matchDetails.totalRun === 0) {
@@ -123,7 +124,7 @@
 
         function finishMatch(obj) {
             return $q(function(resolve, reject) {
-                $http.post("http://185.185.250.55:3000/crud/runUpdate", obj)
+                $http.post(api+"/crud/runUpdate", obj)
                     .then(function(response) {
                         console.log(response);
                         resolve(response);

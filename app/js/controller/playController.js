@@ -13,7 +13,7 @@
         vm.matchId = Service.getMatchId();
         vm.teams = Service.getTeams();
         vm.toss = Service.getToss();
-
+        
         /* Bowling calcualtion */
         vm.score = [];
         vm.over = 0;
@@ -22,7 +22,7 @@
         vm.showloader = false;
         vm.Bowl = function($event) {
             $event.preventDefault();
-            console.log(vm.matchId);
+            // console.log(vm.matchId);
             if (!vm.matchFinished) {
                 if (vm.ball >= 6) {
                     vm.over++;

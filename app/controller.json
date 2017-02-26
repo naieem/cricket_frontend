@@ -1,0 +1,8 @@
+[
+    { "name": "allMatches" },
+    { "name": "matcheDetails" },
+    { "name": "matcheDetailsByOverBall" },
+    { "name": "homeController" },
+    { "name": "tossController" },
+    { "name": "playController" }
+]

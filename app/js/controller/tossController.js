@@ -25,7 +25,7 @@
                 console.log(response);
                 Service.setMatchId(response);
                 Service.setToss(vm.toss);
-                $state.go('play');
+                $state.go('play', {id:response});
             })
 
         }

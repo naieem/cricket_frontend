@@ -4,40 +4,40 @@
     "templateUrl": "template/home.html",
     "controller": "homeController",
     "controllerAs": "home",
-    "default":true
-},{
+    "default": true
+}, {
     "name": "matches",
     "url": "/matches",
     "templateUrl": "template/matches.html",
     "controller": "allMatchesController",
     "controllerAs": "matches",
-    "default":false
+    "default": false
 }, {
     "name": "toss",
     "url": "/toss",
     "templateUrl": "template/toss.html",
     "controller": "tossController",
     "controllerAs": "toss",
-    "default":false
+    "default": false
 }, {
     "name": "play",
-    "url": "/play",
+    "url": "/play/:id",
     "templateUrl": "template/play.html",
     "controller": "playController",
     "controllerAs": "play",
-    "default":false
+    "default": false
 }, {
     "name": "details",
     "url": "/matches/details/:matchId",
     "templateUrl": "template/matchDetails.html",
     "controller": "matchDetails",
     "controllerAs": "details",
-    "default":false
+    "default": false
 }, {
     "name": "detailsByOverBall",
     "url": "/matches/details/:matchId/:over/:ball",
     "templateUrl": "template/matchDetailsByOverBall.html",
     "controller": "matchDetailsByOverBall",
     "controllerAs": "details",
-    "default":false
+    "default": false
 }]

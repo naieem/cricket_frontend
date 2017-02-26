@@ -8,6 +8,7 @@
     <a href="#" ng-click="play.Bowl($event)" ng-if="play.matchFinished ==false" class="btn btn-info" role="button">Bowl</a>
     <div ng-show="play.showloader"><img src='asset/reload.gif'></div>
     <h2 ng-show="play.matchFinished">Match Finished Welldone</h2>
+    <a ui-sref="details({matchId: play.matchId})" ng-show="play.matchFinished" class="btn btn-info" role="button">Full Score</a>
     <table class="table text-left">
         <thead>
             <tr>
@@ -17,23 +18,9 @@
         </thead>
         <tbody>
             <tr ng-repeat="bowls in play.score">
-                <td><a ui-sref="detailsByOverBall({matchId: play.matchId,over:bowls.over,ball:bowls.ball})">{{ bowls.over }}.{{ bowls.ball }}</a></td>
+                <td>{{ bowls.over }}.{{ bowls.ball }}</td>
                 <td>{{ bowls.run }}</td>
             </tr>
         </tbody>
     </table>
-
-
-    <!-- <a href="#" ng-click="Bowl()" ng-show="matchid !== ''">bowl</a>
-    <div class="score" ng-show="matchid !== ''">
-      <div ng-bind="score | json"></div>
-      <p ng-repeat="scores in score">
-        Over:<span ng-bind="scores.over"></span>
-        Ball:<span ng-bind="scores.ball"></span>
-        Run:<span ng-bind="scores.run"></span>
-        TotalRun:<span ng-bind="totalrun"></span>
-      </p>
-    </div> -->
-
-
 </div>

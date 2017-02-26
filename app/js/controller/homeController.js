@@ -39,22 +39,9 @@
             else{
                 vm.selectedTeams.splice(vm.selectedTeams.indexOf(th.team),1);
             }
-            console.log(vm.selectedTeams);
             vm.teamTotal=vm.selectedTeams.length;
             Service.setTeams(vm.selectedTeams);
         }
-
-        // $http.get("http://localhost:3000/naieem")
-        //     .then(function(response) {
-        //         vm.myWelcome = response.data;
-        //     });
-
-        // $http.post("http://localhost:3000/add", {
-        //         'name': "supto"
-        //     })
-        //     .then(function(response) {
-        //         console.log(response);
-        //     });
     }
 
 })();
